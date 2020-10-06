@@ -17,7 +17,7 @@
             <%= image_tag post.image.url, class: "img img-fluid" %>
             <div class="post-details">
             <div class="post-actions">
-            <i class="fab fa-gratipay fa-2x post-like data-id=<% post.id %>"></i>
+            <i class="fab fa-gratipay like-<%= post.id %> fa-2x post-like" data-id="<%= post.id %>"></i>
             <i class="fa fa-comment fa-2x post-comment"></i>
             </div>
                 <p><strong><%= post.total_likes %> likes</strong></p>

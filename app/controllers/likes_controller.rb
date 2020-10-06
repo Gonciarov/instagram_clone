@@ -2,16 +2,19 @@ class LikesController < ApplicationController
     before_action :authenticate_account!
     def save_like
         @like = Like.new(post_id: params[:post_id], account_id: current_account.id)
-    end
-    
+        @post_id = params[:post_id]
+
     respond_to do |format|
-        format.json {
+        
+        format.js {
             if @like.save
-                { success: true }
+                @success = true
             else
-                { success: false }
+                @success = false
             end
+            render "posts/like"
         }
+        end
     end
 end
-end
+
