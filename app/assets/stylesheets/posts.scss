@@ -37,3 +37,5 @@
     }
 }
 
+// <p><strong id="post-<%= post.id %>-comments"><%= link_to post.account.username, profile_path(post.account.username), class: "text-dark" %></strong></p>
+

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_03_114708) do
+ActiveRecord::Schema.define(version: 2020_10_07_211227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,25 @@ ActiveRecord::Schema.define(version: 2020_10_03_114708) do
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.bigint "posts_id"
+    t.bigint "accounts_id"
+    t.string "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["accounts_id"], name: "index_comments_on_accounts_id"
+    t.index ["posts_id"], name: "index_comments_on_posts_id"
+  end
+
+  create_table "followers", force: :cascade do |t|
+    t.bigint "follower_id"
+    t.bigint "following_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["follower_id"], name: "index_followers_on_follower_id"
+    t.index ["following_id"], name: "index_followers_on_following_id"
+  end
+
   create_table "likes", force: :cascade do |t|
     t.bigint "account_id"
     t.bigint "post_id"
@@ -54,6 +73,8 @@ ActiveRecord::Schema.define(version: 2020_10_03_114708) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "description"
+    t.integer "total_likes_count"
+    t.integer "total_comments_count"
     t.index ["account_id"], name: "index_posts_on_account_id"
   end
 

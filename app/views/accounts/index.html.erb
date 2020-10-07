@@ -10,18 +10,19 @@
     <% @posts.each do |post| %>
         <div class="insta-post">
             <div class="post-meta">
-            <%= link_to image_tag(post.account.image.thumb.url, class: "img-circle"), profile_path(post.account.username) %>
+            <% image_path = post.account.image.present? ? post.account.image.url : "default.png" %>
+            <%= link_to image_tag(image_path, width: 25, class: "img-circle"), profile_path(post.account.username) %>
             <%= link_to post.account.username, profile_path(post.account.username), class: "text-dark" %>
             </div>
 
             <%= image_tag post.image.url, class: "img img-fluid" %>
             <div class="post-details">
             <div class="post-actions">
-            <i class="fab fa-gratipay like-<%= post.id %> fa-2x post-like" data-id="<%= post.id %>"></i>
+            <i class="fab fa-gratipay like-<%= post.id %> <%= 'active' if post_liked_by_user?(post.id) %> fa-2x post-like" data-id="<%= post.id %>"></i>
             <i class="fa fa-comment fa-2x post-comment"></i>
             </div>
-                <p><strong><%= post.total_likes %> likes</strong></p>
-                <p><%= link_to post.account.username, profile_path(post.account.username), class: "text-dark" %></strong></p>
+                <p><strong id="post-<%= post.id %>-likes"><%= post.total_likes_count %> likes</strong></p>
+                
                 <%= simple_format post.description %>
                 <p class="text-muted"><%= time_ago_in_words post.created_at %> ago</p>
             </div>
@@ -39,6 +40,7 @@
         <div class="follower-suggestions">
             <%= link_to "View All", "#", class: "float-right text-dark" %>
             <p class="text-muted">Suggestions for you</p>
+            <%= render "accounts/follower_suggestions" %>
         </div>
     </div>
 </div>

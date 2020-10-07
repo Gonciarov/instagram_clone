@@ -1,4 +1,5 @@
-
+document.addEventListener("turbolinks:load", function() {
+  
 $(function(){
     $(".post-like").on("click", function(){
         var post_id = $(this).data("id");
@@ -12,4 +13,5 @@ $(function(){
 
             
         })
-    });
+    })
+});
