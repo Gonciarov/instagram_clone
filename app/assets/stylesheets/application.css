@@ -14,3 +14,7 @@
  *= require_self
  *= require bootstrap.min
  */
+
+ .icon-custom {
+     margin-right: 10px;
+ }

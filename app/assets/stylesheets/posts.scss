@@ -37,5 +37,22 @@
     }
 }
 
+.comment-box {
+    border: 1px solid #ddd;
+    padding: 15px;
+    background: #fff;
+}
+
+.post-comment {
+    outline: none;
+    box-shadow: none !important;
+}
+
+.comments-feed {
+    height: 150px;
+    overflow-y: scroll;
+
+}
+
 // <p><strong id="post-<%= post.id %>-comments"><%= link_to post.account.username, profile_path(post.account.username), class: "text-dark" %></strong></p>
 

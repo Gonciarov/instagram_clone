@@ -19,18 +19,27 @@
             <div class="post-details">
             <div class="post-actions">
             <i class="fab fa-gratipay like-<%= post.id %> <%= 'active' if post_liked_by_user?(post.id) %> fa-2x post-like" data-id="<%= post.id %>"></i>
+            <%= link_to post_path(post.id) do%> 
             <i class="fa fa-comment fa-2x post-comment"></i>
+            <% end %>
             </div>
                 <p><strong id="post-<%= post.id %>-likes"><%= post.total_likes_count %> likes</strong></p>
                 
                 <%= simple_format post.description %>
                 <p class="text-muted"><%= time_ago_in_words post.created_at %> ago</p>
+           
+
+            <%= render "posts/comments", post: post %>
             </div>
             <div class="comment-box">
                 <%= form_for @comment do |f| %>
                     <%= f.hidden_field :post_id, value: post.id %>
-                    <%= f.text_field :comment, placeholder: "Add comment" %>
-                    <%= f.submit "Post", class: "btn btn-success float-right" %>
+                    <div class="input-group">
+                        <%= f.text_field :comment, placeholder: "Add comment", class: "form-control post-comment" %>
+                        <div class="input-group-append">
+                            <%= f.submit "Post", class: "btn btn-success float-right" %>
+                        </div>
+                    </div>
                 <% end %>
             </div>
         </div>
@@ -38,12 +47,12 @@
 </div>
 <div class="col-4">
     <div class="account-summary">
-        <p>
-        <%= link_to image_tag(current_account.image.thumb.url, class: "img-circle"), profile_path(current_account.username) if current_account.image.present? %>
-        <strong><%= current_account.username %></strong>
+        <p class="m-0">
+        <%= link_to image_tag(current_account.image.thumb.url, class: "img-circle float-left m-r-15"), profile_path(current_account.username) if current_account.image.present? %>
+        <strong><%= current_account.username %></strong><br />
+        <%= current_account.full_name %></p>
         </p>
-        <p>
-        <%= current_account.full_name %></p></p>
+        
         <div class="follower-suggestions">
             <%= link_to "View All", "#", class: "float-right text-dark" %>
             <p class="text-muted">Suggestions for you</p>
