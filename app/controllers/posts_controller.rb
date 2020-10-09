@@ -8,6 +8,7 @@ class PostsController < ApplicationController
 
     def show
         @comment = Comment.new
+        @comments = Comment.includes(:account).where(post_id: @post.id)
     end
 
     def create

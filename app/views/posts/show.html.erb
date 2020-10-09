@@ -1,10 +1,4 @@
-<html>
-<head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-</head>
-<script src="https://kit.fontawesome.com/48d27d4d48.js">crossorigin="anonymous"></script>
-
-<div class="container">
+<div class="container post-details">
 <div class="row">
 <div class="col-8">
         <div class="insta-post">
@@ -14,32 +8,33 @@
         <div class="col-4">
         <%= simple_format @post.description %>
             <div class="post-meta">
-            <%= link_to image_tag(@post.image.thumb.url, class: "img-circle"), profile_path(@post.account.username) %>
+            <%= link_to image_tag(@post.account.image.thumb.url, class: "img-circle"), profile_path(@post.account.username) %>
             <%= link_to @post.account.username, profile_path(@post.account.username), class: "text-dark" %>
             </div>
 
             <div class="post-details">
             <%= simple_format @post.description %>
-            
-                
+
+
                 <p class="text-muted"><%= time_ago_in_words @post.created_at %> ago</p>
-                
+
                 <div class="comments-feed">
-                <%= render "posts/comments", post: @post %>
+                <%= render "posts/comments", post: @post, comments: @comments %>
                 </div>
 
                 <div class="post-actions">
             <i class="fab fa-gratipay like-<%= @post.id %> <%= 'active' if post_liked_by_user?(@post.id) %> fa-2x post-like" data-id="<%= @post.id %>"></i>
-            <i class="fa fa-comment fa-2x post-comment"></i>
+            <i class="fa fa-comment fa-2x post-comment" id="post-comment"></i>
             </div>
                 <p><strong id="post-<%= @post.id %>-likes"><%= @post.total_likes_count %> likes</strong></p>
-                <p><strong id="post-<%= @post.id %>-comments"><%= link_to @post.account.username, profile_path(@post.account.username), class: "text-dark" %></p>
-                
+                <p><strong id="post-<%= @post.id %>-comments"></p>
+
             </div>
 
             <div class="comment-box">
                 <%= form_for @comment do |f| %>
                     <%= f.hidden_field :post_id, value: @post.id %>
+                    <%= f.hidden_field :return_to, value: "post" %>
                     <div class="input-group">
                         <%= f.text_field :comment, placeholder: "Add comment", class: "form-control post-comment" %>
                         <div class="input-group-append">
@@ -48,17 +43,5 @@
                     </div>
                 <% end %>
             </div>
-            
+
             </html>
-        
-    
-
-
-
-
-
-            
-
-
-                
-               
