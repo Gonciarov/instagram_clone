@@ -23,7 +23,7 @@
             <i class="fa fa-comment fa-2x post-comment"></i>
             <% end %>
             </div>
-                <p><strong id="post-<%= post.id %>-likes"><%= post.total_likes_count %> likes</strong></p>
+                <p><strong id="post-<%= post.id %>-likes"><%= post.total_likes_count.present? ? post.total_likes_count : 0 %> likes</strong></p>
                 
                 <%= simple_format post.description %>
                 <p class="text-muted"><%= time_ago_in_words post.created_at %> ago</p>

@@ -18,6 +18,9 @@ ActiveRecord::Schema.define(version: 2020_10_09_200729) do
   create_table "accounts", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "username"
+    t.string "first_name"
+    t.string "last_name"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -31,9 +34,6 @@ ActiveRecord::Schema.define(version: 2020_10_09_200729) do
     t.string "image"
     t.text "description"
     t.string "website"
-    t.string "username"
-    t.string "first_name"
-    t.string "last_name"
     t.string "provider"
     t.string "uid"
     t.index ["email"], name: "index_accounts_on_email", unique: true

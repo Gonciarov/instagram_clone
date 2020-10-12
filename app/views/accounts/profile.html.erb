@@ -31,8 +31,8 @@
         <%= link_to post_path(post) do %>
         <div class="post-stats">
         <div class="inner">
-            <i class="fab fa-gratipay"></i> <%= post.total_likes_count %>
-            <i class="fa fa-comment m-l-15"></i> <%= post.total_comments_count %>
+            <i class="fab fa-gratipay"></i> <%= post.total_likes_count.present? ? post.total_likes_count : 0 %>
+            <i class="fa fa-comment m-l-15"></i> <%= post.total_comments_count.present? ? post.total_comments_count : 0 %>
             </div>
         </div> 
         <% end %>

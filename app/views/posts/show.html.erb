@@ -8,7 +8,7 @@
         <div class="col-4">
         <%= simple_format @post.description %>
             <div class="post-meta">
-            <%= link_to image_tag(@post.account.image.thumb.url, class: "img-circle"), profile_path(@post.account.username) %>
+            <%= link_to profile_picture(@post.account, 25), profile_path(@post.account.username) %>
             <%= link_to @post.account.username, profile_path(@post.account.username), class: "text-dark" %>
             </div>
 
@@ -26,7 +26,7 @@
             <i class="fab fa-gratipay like-<%= @post.id %> <%= 'active' if post_liked_by_user?(@post.id) %> fa-2x post-like" data-id="<%= @post.id %>"></i>
             <i class="fa fa-comment fa-2x post-comment" id="post-comment"></i>
             </div>
-                <p><strong id="post-<%= @post.id %>-likes"><%= @post.total_likes_count %> likes</strong></p>
+                <p><strong id="post-<%= @post.id %>-likes"><%= @post.total_likes_count == 0 ? @post.total_likes_count : 0 %> likes</strong></p>
                 <p><strong id="post-<%= @post.id %>-comments"></p>
 
             </div>
