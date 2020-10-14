@@ -32,12 +32,12 @@
 
 # Tests
 
-- The whole app has been shamelessly spiked
+- the whole app has been shamelessly spiked
 
 # Bugs found
 
 - 'Sign up with FB' button does not work on Heroku, on my way to fix it
-- Need to connect the app to AWS in future
+- need to connect the app to AWS in future
 
 
 
