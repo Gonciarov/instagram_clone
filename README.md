@@ -1,24 +1,41 @@
-# README
+# About
+- self-learning project;
+- Instagram MVP inspired by [David Battersby](https://www.youtube.com/watch?v=dqjF3C9A-Yg) but not religiously followed;
+- has Sign up, Sign in, Post, Comment, Like and Follow user functions;
+- see it [deployed to Heroku](https://frozen-citadel-70120.herokuapp.com/)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Dev team
 
-Things you may want to cover:
+- myself
 
-* Ruby version
+# Tech
 
-* System dependencies
+- Ruby 2.6.5 and some JavaScript
+- Rails 6.0.3
+- PostgresQL
+- Bootstrap
+- Devise
+- Omniauth
+- Heroku
 
-* Configuration
+# Run locally
 
-* Database creation
+```
+> bundle install
+> rake db:create
+> rake db:migrate
+```
 
-* Database initialization
+# Tests
 
-* How to run the test suite
+- The whole app has been shamelessly spiked.
 
-* Services (job queues, cache servers, search engines, etc.)
+# Bugs found
 
-* Deployment instructions
+- 'Sign up with FB' button does not work on Heroku, on my way to fix it.
 
-* ...
+
+
+
+
+
