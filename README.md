@@ -20,13 +20,15 @@
 
 # Run locally
 
+- clone this repo, then:
+
 ```
 > bundle install
 > rake db:create
 > rake db:migrate
 > rails s
 ```
-then go to localhost:3000
+- and then go to localhost:3000
 
 # Tests
 
