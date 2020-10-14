@@ -26,6 +26,7 @@
 > rake db:migrate
 > rails s
 ```
+then go to localhost:3000
 
 # Tests
 
