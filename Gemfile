@@ -16,6 +16,7 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'sass-rails', '>= 6'
 gem 'bootstrap-sass', '~> 3.4.1'
+gem "aws-sdk-s3", require: false #amazon
 gem 'carrierwave', "0.10.0"
 gem 'mini_magick' #image resize
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
