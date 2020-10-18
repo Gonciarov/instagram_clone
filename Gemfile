@@ -5,6 +5,8 @@ ruby '2.6.5'
 
 gem 'figaro'
 
+gem 'fog'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.3'
 # Use postgres as db
