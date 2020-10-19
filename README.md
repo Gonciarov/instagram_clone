@@ -2,7 +2,7 @@
 - self-learning project
 - Instagram MVP inspired by [David Battersby](https://www.youtube.com/watch?v=dqjF3C9A-Yg) but not religiously followed
 - has Sign up, Sign in, Post, Comment, Like and Follow user functions
-- see it [deployed to Heroku](https://frozen-citadel-70120.herokuapp.com/)
+- see it [deployed to Heroku](https://nameless-crag-61113.herokuapp.com/)
 
 # Dev team
 
@@ -13,9 +13,9 @@
 - Ruby 2.6.5 and some JavaScript
 - Rails 6.0.3
 - PostgresQL
-- Bootstrap
+- Bootstrap / HTML / CSS
 - Devise
-- Omniauth
+- CarrierWave / Fog / AWS
 - Heroku
 
 # Run locally
@@ -34,10 +34,6 @@
 
 - the whole app has been shamelessly spiked
 
-# Bugs found
-
-- 'Sign up with FB' button does not work on Heroku, on my way to fix it
-- need to connect the app to AWS in future
 
 
 
